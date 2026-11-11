@@ -1,6 +1,6 @@
 # Open pull requests
 
-Fixes and features waiting for review, with what each one fixes. Merged work is on the [profile page](README.md).
+Fixes and features waiting for review, with what each one fixes. Merged work is on the [profile page](https://github.com/skybleak333).
 
 ## AI and agents
 
