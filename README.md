@@ -2,7 +2,7 @@
 
 Senior backend engineer in Valencia, Spain. I build PHP/Laravel services: APIs, queues and background jobs, SSO integrations, and the systems that keep releases running reliably.
 
-In open source, I look for bugs in the tools I use and report them with a reproduction, a failing test and, where I can, a fix.
+In open source, I look for bugs in the tools I use and report them with a reproduction, a failing test and, where I can, a fix. So far: 15 merged fixes in [Symfony](https://github.com/symfony/symfony/pulls?q=is%3Apr+author%3Askybleak333+is%3Aclosed) (Messenger, Lock, Semaphore, RateLimiter, Scheduler), and fixes in the [official MCP SDK for PHP](https://github.com/modelcontextprotocol/php-sdk/pull/707) and [openai-php/client](https://github.com/openai-php/client/pull/833).
 
 ## Open source
 
