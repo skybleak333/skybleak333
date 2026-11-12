@@ -4,7 +4,7 @@ Senior backend engineer in Valencia, Spain. I build PHP/Laravel services: APIs, 
 
 In open source, I look for bugs in the tools I use, from AI SDKs and agent memory to queues and locks. Each report comes with a reproduction, a failing test and, where I can, a fix.
 
-**Merged so far:** 22 fixes in [Symfony](https://github.com/symfony/symfony/pulls?q=is%3Apr+author%3Askybleak333+is%3Aclosed), 9 in [openai-php/client](https://github.com/openai-php/client/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged), 6 in [symfony/ai](https://github.com/symfony/ai/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged), 1 in the [official MCP SDK for PHP](https://github.com/modelcontextprotocol/php-sdk/pull/707), 2 in [Predis](https://github.com/predis/predis/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged). The [Hindsight](https://github.com/vectorize-io/hindsight) maintainer fixed all 5 of my bug reports, one [with me as co-author](https://github.com/vectorize-io/hindsight/commit/7c54d7cba6ec7a50078fae8669c55c424d0363d1).
+**Merged so far:** 22 fixes in [Symfony](https://github.com/symfony/symfony/pulls?q=is%3Apr+author%3Askybleak333+is%3Aclosed), 9 in [openai-php/client](https://github.com/openai-php/client/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged), 7 in [symfony/ai](https://github.com/symfony/ai/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged), 1 in the [official MCP SDK for PHP](https://github.com/modelcontextprotocol/php-sdk/pull/707), 2 in [Predis](https://github.com/predis/predis/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged). The [Hindsight](https://github.com/vectorize-io/hindsight) maintainer fixed all 5 of my bug reports, one [with me as co-author](https://github.com/vectorize-io/hindsight/commit/7c54d7cba6ec7a50078fae8669c55c424d0363d1).
 
 ## AI and agents
 
@@ -23,6 +23,7 @@ In open source, I look for bugs in the tools I use, from AI SDKs and agent memor
 | [symfony/ai](https://github.com/symfony/ai) | An agent whose tool returned nothing failed after the tool had already run | [#2896](https://github.com/symfony/ai/pull/2896) merged |
 | | `#[Assert\Regex]` became a JSON schema pattern that let through more than the constraint | [#2893](https://github.com/symfony/ai/pull/2893) merged |
 | | A rate limit error gave no retry time for OpenAI's reset durations such as `8.64s` | [#2908](https://github.com/symfony/ai/pull/2908) merged |
+| | A Gemini rate limit error gave no retry time, as Gemini sends it in the error body | [#2914](https://github.com/symfony/ai/pull/2914) merged |
 | | Mistral token usage reported the per-minute limit as the tokens left | [#2911](https://github.com/symfony/ai/pull/2911) merged |
 | | Ollama's cached prompt tokens were not read, so cache hits never showed in the token usage | [#2912](https://github.com/symfony/ai/pull/2912) merged |
 | | The Redis vector store returned about half of the documents a query found, so RAG got fewer chunks than asked for | [#2895](https://github.com/symfony/ai/pull/2895) merged |
