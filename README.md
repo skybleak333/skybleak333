@@ -29,7 +29,7 @@ In open source, I look for bugs in the tools I use, from AI SDKs and agent memor
 | [Hindsight](https://github.com/vectorize-io/hindsight) (memory server for AI agents, ~60k stars) | Concurrent retries stored facts twice; the [fix](https://github.com/vectorize-io/hindsight/pull/6433) keeps my failing test | [#6337](https://github.com/vectorize-io/hindsight/issues/6337) fixed, co-author |
 | | Four more reports with patches, all fixed within four days | [#6335](https://github.com/vectorize-io/hindsight/issues/6335), [#6280](https://github.com/vectorize-io/hindsight/issues/6280), [#6231](https://github.com/vectorize-io/hindsight/issues/6231), [#6235](https://github.com/vectorize-io/hindsight/issues/6235) |
 
-Under review: over 40 more pull requests, in symfony/ai, Prism, both MCP SDKs for PHP, openai-php, LLPhant, the Gemini PHP client, Spatie, Monolog and php-amqplib. [What each one fixes](https://github.com/skybleak333/skybleak333/blob/main/CONTRIBUTIONS.md).
+Under review: over 40 more pull requests, in symfony/ai, Prism, both MCP SDKs for PHP, openai-php, LLPhant, the Gemini PHP client, Symfony, Spatie, Monolog and php-amqplib. [What each one fixes](https://github.com/skybleak333/skybleak333/blob/main/CONTRIBUTIONS.md).
 
 My projects:
 
