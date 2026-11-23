@@ -5,7 +5,7 @@ Senior PHP and Laravel engineer based in Valencia, Spain. I build APIs, queues a
 ## What I build
 
 - **hindsight-php** adds long-term memory to Laravel AI SDK, Laravel MCP, Symfony AI and Neuron AI. Laravel agents can filter and cite recalled facts before generation and queue writes for retry after an outage. [Project](https://github.com/skybleak333/hindsight-php) · [Latest release](https://github.com/skybleak333/hindsight-php/releases/tag/v0.15.0) · [Hindsight Integrations Hub](https://hindsight.vectorize.io/integrations)
-- **Memory Policy Audit** uses Neo4j Relate to recover the current policy and its citation when Hindsight finds only an outdated revision. It works with Laravel AI, MCP clients and browser agents. [Graph demo](https://skybleak333.github.io/memory-policy-audit/?recall=stale) · [Browser agent](https://skybleak333.github.io/memory-policy-audit/agents/) · [MCP setup](https://github.com/skybleak333/memory-policy-audit#look-up-policies-from-an-mcp-client)
+- **Memory Policy Audit** uses Neo4j Relate to recover approved policies and citations from stale memory. It can replay a past decision using the revisions published by that day. [Replay demo](https://skybleak333.github.io/memory-policy-audit/?as-of=2026-11-05&known-on=2026-11-05&recall=stale) · [Browser agent](https://skybleak333.github.io/memory-policy-audit/agents/) · [MCP setup](https://github.com/skybleak333/memory-policy-audit#look-up-policies-from-an-mcp-client)
 - **laravel-queue-lab** reproduces worker failures in CI, including a Laravel AI SDK tool running twice after provider failover and RabbitMQ redelivering a job after an acknowledgement timeout. [Experiments](https://github.com/skybleak333/laravel-queue-lab)
 
 ## Merged contributions
