@@ -4,7 +4,7 @@ Senior PHP and Laravel engineer based in Valencia, Spain. I build APIs, queues a
 
 ## What I build
 
-- **hindsight-php** adds long-term memory to Laravel AI SDK, Laravel MCP, Symfony AI and Neuron AI. Its Laravel command shows which memories an agent would recall for a message. [Project](https://github.com/skybleak333/hindsight-php) · [Recall command](https://github.com/skybleak333/hindsight-php/releases/tag/v0.12.0) · [Hindsight Integrations Hub](https://hindsight.vectorize.io/integrations)
+- **hindsight-php** adds long-term memory to Laravel AI SDK, Laravel MCP, Symfony AI and Neuron AI. Its Laravel tools show what an agent would recall and queue the facts it wants to keep, so a temporary API outage can be retried. [Project](https://github.com/skybleak333/hindsight-php) · [Queued writes](https://github.com/skybleak333/hindsight-php/releases/tag/v0.13.0) · [Hindsight Integrations Hub](https://hindsight.vectorize.io/integrations)
 - **laravel-queue-lab** reproduces worker failures in CI, including a Laravel AI SDK tool running twice after provider failover and RabbitMQ redelivering a job after an acknowledgement timeout. [Experiments](https://github.com/skybleak333/laravel-queue-lab)
 
 ## Merged contributions

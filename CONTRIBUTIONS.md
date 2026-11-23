@@ -63,6 +63,7 @@ This is a selection of merged work and open pull requests. [Back to the profile]
 
 ### AI and agents
 
+- **Symfony AI** adds support for typed PHP responses from the Codex CLI. The bridge passes a JSON Schema to Codex and deserializes the final reply through Symfony AI's structured output subscriber. [#3055](https://github.com/symfony/ai/pull/3055)
 - **MCP PHP SDK:** [#735](https://github.com/modelcontextprotocol/php-sdk/pull/735) a tool with a variadic enum parameter could not be called, [#736](https://github.com/modelcontextprotocol/php-sdk/pull/736) an `iterable` parameter refused JSON arrays, [#737](https://github.com/modelcontextprotocol/php-sdk/pull/737) an unknown method got `-32600` instead of `-32601`, [#738](https://github.com/modelcontextprotocol/php-sdk/pull/738) completion for a resource template answered with another template's values.
 - **[google-gemini-php/client](https://github.com/google-gemini-php/client):** [#193](https://github.com/google-gemini-php/client/pull/193) exposes the retry delay and quota details Gemini sends with a 429.
 - **[logiscape/mcp-sdk-php](https://github.com/logiscape/mcp-sdk-php)** (community MCP SDK for PHP): [#66](https://github.com/logiscape/mcp-sdk-php/pull/66) a stdio server died on a message that arrived in several reads, e.g. a tool call with a 1 MB argument; [#67](https://github.com/logiscape/mcp-sdk-php/pull/67) one malformed line from the client ended the server. [#68](https://github.com/logiscape/mcp-sdk-php/pull/68) the PHP client failed on a server response of 500 KB or more.
