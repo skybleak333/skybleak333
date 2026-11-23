@@ -6,7 +6,7 @@ Senior PHP and Laravel engineer based in Valencia, Spain. I build APIs, queues a
 
 - **hindsight-php** adds long-term memory to Laravel AI SDK, Laravel MCP, Symfony AI and Neuron AI. Laravel and Symfony agents can verify recalled sources and attach citations before the model sees them. [Project](https://github.com/skybleak333/hindsight-php) · [Latest release](https://github.com/skybleak333/hindsight-php/releases/tag/v0.16.0) · [Hindsight Integrations Hub](https://hindsight.vectorize.io/integrations)
 - **Memory Policy Audit** uses Neo4j Relate to recover approved policies and citations from stale memory. Compare what the agent received before and after a publication, then verify both decisions offline. [Compare decisions](https://skybleak333.github.io/memory-policy-audit/?as-of=2026-11-05&compare-known-on=2026-11-05&known-on=2026-11-10&recall=stale) · [CLI](https://github.com/skybleak333/memory-policy-audit#compare-two-decisions) · [Browser agent](https://skybleak333.github.io/memory-policy-audit/agents/)
-- **laravel-queue-lab** reproduces worker failures in CI, including a Laravel AI SDK tool running twice after provider failover and RabbitMQ redelivering a job after an acknowledgement timeout. [Experiments](https://github.com/skybleak333/laravel-queue-lab)
+- **laravel-queue-lab** reproduces worker failures in CI. One experiment kills an AI worker after it commits an invoice to an outbox. A second worker retries the job and switches providers. Three tool calls leave one email intent. [Outbox experiment](https://github.com/skybleak333/laravel-queue-lab#experiment-7-an-invoice-outbox-through-a-worker-crash-and-failover) · [Queue experiments](https://github.com/skybleak333/laravel-queue-lab)
 
 ## Merged contributions
 
