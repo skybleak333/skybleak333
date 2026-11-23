@@ -11,7 +11,7 @@ Senior PHP and Laravel engineer based in Valencia, Spain. I build APIs, queues a
 
 - **Hindsight** kept my regression test and fix for an interrupted embedding migration that mixed vectors from two models. I also co-authored the fix for concurrent retries storing the same facts twice. [Embedding migration](https://github.com/vectorize-io/hindsight/pull/6509) · [Duplicate facts](https://github.com/vectorize-io/hindsight/commit/7c54d7cba6ec7a50078fae8669c55c424d0363d1)
 - **MCP PHP SDK** now reads stdio messages larger than the pipe buffer, so tool calls with large arguments get a response. [PR #707](https://github.com/modelcontextprotocol/php-sdk/pull/707)
-- **OpenAI PHP** can count input tokens before sending a Responses API request. [PR #844](https://github.com/openai-php/client/pull/844)
+- **OpenAI PHP** can compact the context of long Responses API conversations and count input tokens before sending a request. [Context compaction](https://github.com/openai-php/client/pull/845) · [Token counting](https://github.com/openai-php/client/pull/844)
 - **Symfony AI** now returns all documents from a Redis vector search. [PR #2895](https://github.com/symfony/ai/pull/2895)
 - **Symfony Messenger** now keeps fetched PostgreSQL jobs alive while they wait for their turn in a worker's batch. [PR #67993](https://github.com/symfony/symfony/pull/67993)
 
