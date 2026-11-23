@@ -1,78 +1,18 @@
 # Andrei Fedoseev
 
-Senior backend engineer in Valencia, Spain. I build PHP/Laravel services: APIs, queues and background jobs, SSO integrations, and the systems that keep releases running reliably.
+Senior PHP and Laravel engineer based in Valencia, Spain. I build APIs, queues and integrations. My open-source work focuses on AI agent infrastructure and what happens when a request, a worker or a connection fails.
 
-In open source, I look for bugs in the tools I use, from AI SDKs and agent memory to queues and locks. Each report comes with a reproduction, a failing test and, where I can, a fix.
+## What I build
 
-**Merged so far:** 27 fixes in [Symfony](https://github.com/symfony/symfony/pulls?q=is%3Apr+author%3Askybleak333+is%3Aclosed), 9 in [openai-php/client](https://github.com/openai-php/client/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged), 8 in [symfony/ai](https://github.com/symfony/ai/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged), 1 in the [official MCP SDK for PHP](https://github.com/modelcontextprotocol/php-sdk/pull/707), 2 in [Predis](https://github.com/predis/predis/pulls?q=is%3Apr+author%3Askybleak333+is%3Amerged), 5 in [Spatie](https://github.com/search?q=author%3Askybleak333+org%3Aspatie+is%3Apr+is%3Amerged&type=pullrequests) packages. The [Hindsight](https://github.com/vectorize-io/hindsight) maintainer fixed all 5 of my bug reports, one [with me as co-author](https://github.com/vectorize-io/hindsight/commit/7c54d7cba6ec7a50078fae8669c55c424d0363d1).
+- **hindsight-php** adds long-term memory to Laravel AI SDK, Laravel MCP, Symfony AI and Neuron AI. Its Laravel command shows which memories an agent would recall for a message. [Project](https://github.com/skybleak333/hindsight-php) · [Recall command](https://github.com/skybleak333/hindsight-php/releases/tag/v0.12.0) · [Hindsight Integrations Hub](https://hindsight.vectorize.io/integrations)
+- **laravel-queue-lab** reproduces worker failures in CI, including a Laravel AI SDK tool running twice after provider failover and RabbitMQ redelivering a job after an acknowledgement timeout. [Experiments](https://github.com/skybleak333/laravel-queue-lab)
 
-## AI and agents
+## Merged contributions
 
-| Project | What was broken | |
-|---|---|---|
-| [MCP PHP SDK](https://github.com/modelcontextprotocol/php-sdk) | A stdio server read a message larger than the pipe buffer in parts, so a tool call with 100 KB of arguments never got an answer | [#707](https://github.com/modelcontextprotocol/php-sdk/pull/707) merged |
-| [openai-php/client](https://github.com/openai-php/client) | Streaming a response that calls a custom tool failed with `UnhandledMatchError` | [#833](https://github.com/openai-php/client/pull/833) merged |
-| | Listing a conversation's items failed once it held a compaction or tool search item | [#836](https://github.com/openai-php/client/pull/836) merged |
-| | A streamed response died on the `response.compaction.compacting` event | [#837](https://github.com/openai-php/client/pull/837) merged |
-| | A streamed diarized transcription failed on its first segment | [#838](https://github.com/openai-php/client/pull/838) merged |
-| | A malformed `webhook-signature` header made the webhook verifier throw a `TypeError`, a 500 instead of a verification error | [#839](https://github.com/openai-php/client/pull/839) merged |
-| | `fake()` of streamed transcriptions and images gave an empty stream | [#840](https://github.com/openai-php/client/pull/840) merged |
-| | A response with the `local_shell` or `web_search_2025_08_26` tool failed after the API had answered | [#841](https://github.com/openai-php/client/pull/841) merged |
-| | Listing conversation items failed on a message with `reasoning_text` content | [#842](https://github.com/openai-php/client/pull/842) merged |
-| | `fake()` of the vector store file batch response had no fixture | [#843](https://github.com/openai-php/client/pull/843) merged |
-| [symfony/ai](https://github.com/symfony/ai) | An agent whose tool returned nothing failed after the tool had already run | [#2896](https://github.com/symfony/ai/pull/2896) merged |
-| | `#[Assert\Regex]` became a JSON schema pattern that let through more than the constraint | [#2893](https://github.com/symfony/ai/pull/2893) merged |
-| | A rate limit error gave no retry time for OpenAI's reset durations such as `8.64s` | [#2908](https://github.com/symfony/ai/pull/2908) merged |
-| | A Gemini rate limit error gave no retry time, as Gemini sends it in the error body | [#2914](https://github.com/symfony/ai/pull/2914) merged |
-| | Mistral token usage reported the per-minute limit as the tokens left | [#2911](https://github.com/symfony/ai/pull/2911) merged |
-| | Ollama's cached prompt tokens were not read, so cache hits never showed in the token usage | [#2912](https://github.com/symfony/ai/pull/2912) merged |
-| | The Redis vector store returned about half of the documents a query found, so RAG got fewer chunks than asked for | [#2895](https://github.com/symfony/ai/pull/2895) merged |
-| | Mate, the MCP server for AI agents working on Symfony apps, mixed up the context and extra of a log line that held an escaped quote | [#2928](https://github.com/symfony/ai/pull/2928) merged |
-| [Hindsight](https://github.com/vectorize-io/hindsight) (memory server for AI agents, ~60k stars) | Concurrent retries stored facts twice; the [fix](https://github.com/vectorize-io/hindsight/pull/6433) keeps my failing test | [#6337](https://github.com/vectorize-io/hindsight/issues/6337) fixed, co-author |
-| | Four more reports with patches, all fixed within four days | [#6335](https://github.com/vectorize-io/hindsight/issues/6335), [#6280](https://github.com/vectorize-io/hindsight/issues/6280), [#6231](https://github.com/vectorize-io/hindsight/issues/6231), [#6235](https://github.com/vectorize-io/hindsight/issues/6235) |
+- **Hindsight** kept my regression test and fix for an interrupted embedding migration that mixed vectors from two models. I also co-authored the fix for concurrent retries storing the same facts twice. [Embedding migration](https://github.com/vectorize-io/hindsight/pull/6509) · [Duplicate facts](https://github.com/vectorize-io/hindsight/commit/7c54d7cba6ec7a50078fae8669c55c424d0363d1)
+- **MCP PHP SDK** now reads stdio messages larger than the pipe buffer, so tool calls with large arguments get a response. [PR #707](https://github.com/modelcontextprotocol/php-sdk/pull/707)
+- **OpenAI PHP** can count input tokens before sending a Responses API request. [PR #844](https://github.com/openai-php/client/pull/844)
+- **Symfony AI** now returns all documents from a Redis vector search. [PR #2895](https://github.com/symfony/ai/pull/2895)
+- **Symfony Messenger** now keeps fetched PostgreSQL jobs alive while they wait for their turn in a worker's batch. [PR #67993](https://github.com/symfony/symfony/pull/67993)
 
-Under review: over 50 more pull requests, in symfony/ai, Prism, both MCP SDKs for PHP, openai-php, LLPhant, the Gemini PHP client, Monolog and php-amqplib. [What each one fixes](https://github.com/skybleak333/skybleak333/blob/main/CONTRIBUTIONS.md).
-
-My projects:
-
-- **[hindsight-php](https://github.com/skybleak333/hindsight-php):** long-term memory for Laravel AI SDK agents, Laravel MCP servers, Symfony AI agents ([v0.8](https://github.com/skybleak333/hindsight-php/releases/tag/v0.8.0), [v0.9](https://github.com/skybleak333/hindsight-php/releases/tag/v0.9.0), with a Symfony bundle since [v0.11](https://github.com/skybleak333/hindsight-php/releases/tag/v0.11.0)) and Neuron AI agents ([v0.10](https://github.com/skybleak333/hindsight-php/releases/tag/v0.10.0)), on the open-source Hindsight server. Listed in the [Hindsight integrations hub](https://hindsight.vectorize.io/integrations) by its maintainers. [v0.4](https://github.com/skybleak333/hindsight-php/releases/tag/v0.4.0) added recall, retain and reflect tools for `laravel/mcp`, so Claude Desktop or Cursor gets memory with a bank per user; [v0.5](https://github.com/skybleak333/hindsight-php/releases/tag/v0.5.0) to [v0.7](https://github.com/skybleak333/hindsight-php/releases/tag/v0.7.0) add the pages API of Hindsight 1.2.1, with tools to search and read pages for MCP clients and agents. The tools also work in Prism. Memories go through the Laravel queue, and a retry never stores one twice; `Hindsight::fake()` makes it testable. CI runs against real Hindsight 1.1.0, 1.2.0 and 1.2.1 servers.
-
-## Backend infrastructure
-
-- **[Symfony](https://github.com/symfony/symfony):** twenty-seven merged bug fixes in Messenger, Lock, Semaphore, RateLimiter, Scheduler, Cache, HttpClient and the new JsonSchema component, each with a failing test and a reproduction:
-  - [#68021](https://github.com/symfony/symfony/pull/68021) RateLimiter: the sliding window counted reservations for later windows as hits that had already happened, so workers waiting for a reservation went over the limit: with 10 per minute, 50 workers got 60.
-  - [#67993](https://github.com/symfony/symfony/pull/67993) Messenger: with `--fetch-size`, `--keepalive` covered only the message being handled, so the rest of the batch went to another worker and was handled twice (reproduced with two workers on PostgreSQL).
-  - [#68020](https://github.com/symfony/symfony/pull/68020) and [#68022](https://github.com/symfony/symfony/pull/68022) Redis transport: after a failed read or reject, a worker with the new cooldown strategy kept running but never read again the messages Redis had already delivered to it.
-  - [#68011](https://github.com/symfony/symfony/pull/68011) Semaphore: once a slot of a `LockStore` semaphore had expired and another process took it, `acquire()` still returned `true`, so two processes held a semaphore limited to one.
-  - [#67994](https://github.com/symfony/symfony/pull/67994) Lock: once the PostgreSQL session was lost, `DoctrineDbalPostgreSqlStore` never gave that lock to the process again until it restarted.
-  - [#68029](https://github.com/symfony/symfony/pull/68029) Lock: with a Predis client created from a DSN, Redis errors were taken for a success, so after a failover two processes could hold the same lock.
-  - [#68025](https://github.com/symfony/symfony/pull/68025) Scheduler: after a restart, a cron task without a timezone moved to the timezone of the task that ran last, so a nightly 02:00 UTC job ran at 07:00.
-  - [#68019](https://github.com/symfony/symfony/pull/68019) and [#68088](https://github.com/symfony/symfony/pull/68088) RateLimiter: the token bucket counted the wait and the reset time from now instead of from its last refill, so `retryAfter` was up to a full interval late. The maintainer asked for the second fix after merging the first.
-  - [#68095](https://github.com/symfony/symfony/pull/68095) HttpClient: a retried `PUT` or `POST` with a stream or generator body went out empty, and the server accepted the request without its payload. Nicolas Grekas extended the fix to redirects and to streams nested in the body.
-  - [#68133](https://github.com/symfony/symfony/pull/68133), [#68134](https://github.com/symfony/symfony/pull/68134) and [#68135](https://github.com/symfony/symfony/pull/68135) JsonSchema, the new 8.2 component that describes tool inputs and structured outputs to AI agents in Symfony AI: with extra attributes not allowed, the objects created by a `#[SerializedPath]` stayed open, so OpenAI strict mode refused the schema; `#[Count]` and `#[NotBlank]` on a map such as `array<string, int>` gave it `minItems`, so `{}` passed; a default of `INF` or `NAN` made the whole schema fail to encode. Nicolas Grekas extended each fix before merging.
-  - [#68130](https://github.com/symfony/symfony/pull/68130) HttpClient: when a streamed `POST` lost its connection, `EventSourceHttpClient` sent it again without telling the caller, so a Symfony AI chat completion was generated and billed twice. Merged into 7.4.
-  - Also merged: `CompoundLimiter` accepting a hit that one of its limiters refused ([#68016](https://github.com/symfony/symfony/pull/68016)), a Redis keepalive check comparing milliseconds with seconds ([#68017](https://github.com/symfony/symfony/pull/68017)), MongoDB `isAcquired()` failing before the first `acquire()` ([#68027](https://github.com/symfony/symfony/pull/68027)), Memcached locks longer than 30 days expiring at once ([#68028](https://github.com/symfony/symfony/pull/68028)), a Scheduler worker crashing when its lock expired during a long run ([#68030](https://github.com/symfony/symfony/pull/68030)), `'P1M'` intervals running every 31 days ([#68026](https://github.com/symfony/symfony/pull/68026)), tagged cache items without expiry that were read back as expiring in 2090 ([#68090](https://github.com/symfony/symfony/pull/68090)), a task added to a running Scheduler that ran all its earlier slots at once ([#68089](https://github.com/symfony/symfony/pull/68089)), `ChainAdapter` losing the expiry of items from `FilesystemAdapter` ([#68091](https://github.com/symfony/symfony/pull/68091)), `CachingHttpClient::stream()` yielding a stream instead of its chunks ([#68093](https://github.com/symfony/symfony/pull/68093)), `CachingHttpClient` taking invalid HTTP dates for valid ones, so `Expires: 3600` was fresh until the year 3600 ([#68094](https://github.com/symfony/symfony/pull/68094)), and the SSE parser giving an empty `event:` the type `''` instead of `message` and dropping an empty first `data:` line ([#68131](https://github.com/symfony/symfony/pull/68131)).
-- **[Predis](https://github.com/predis/predis)** (the PHP Redis client, ~7.8k stars), two fixes merged by Till Krüss:
-  - [#1756](https://github.com/predis/predis/pull/1756) once a transaction had sent `WATCH` or `MULTI`, a lost connection made Predis retry the command on a new connection, outside the transaction. With Sentinel this happened with default options, and a check-and-set transaction then overwrote a change another client made after `WATCH`.
-  - [#1755](https://github.com/predis/predis/pull/1755) when Redis rejected a command queued in a transaction built with the fluent interface (OOM, `READONLY` after a failover), the connection stayed in `MULTI`, so every later command on it was queued and never ran. With persistent connections, the next request on that PHP-FPM worker got the same socket.
-- **[Spatie](https://github.com/spatie)** (Laravel packages), five fixes merged by Freek Van der Herten:
-  - [laravel-query-builder#1076](https://github.com/spatie/laravel-query-builder/pull/1076) (~4.5k stars) `->ignore(null)`, the example in its docs, dropped `filter[active]=false`, so the query returned every record.
-  - [laravel-sluggable#320](https://github.com/spatie/laravel-sluggable/pull/320) (~1.6k stars) with self-healing URLs, a route that named its column, such as `{post:id}`, returned 404.
-  - [laravel-activitylog#1481](https://github.com/spatie/laravel-activitylog/pull/1481) (~5.9k stars) with buffering on, an activity model without an `updated_at` column lost every buffered activity of the request.
-  - [laravel-settings#371](https://github.com/spatie/laravel-settings/pull/371) (~1.5k stars) settings with a `DateTimeInterface` or `CarbonInterface` property failed to load.
-  - [laravel-markdown-response#15](https://github.com/spatie/laravel-markdown-response/pull/15), which serves pages as markdown to AI agents: with the middleware registered globally, as its docs suggest, `/about.md` returned the HTML page. Released in [1.2.4](https://github.com/spatie/laravel-markdown-response/releases/tag/1.2.4).
-- **[laravel-queue-lab](https://github.com/skybleak333/laravel-queue-lab):** reproducible experiments with Laravel workers, rerun in CI every week: jobs that run twice after RabbitMQ's acknowledgement timeout, a frozen broker that `queue:work` doesn't notice, `rabbitmq:consume` ignoring SIGTERM in maintenance mode, two Laravel 13 bugs: debounce `maxWait` that didn't force a single run in 60 s of steady dispatches, and a timeout counted twice against `maxExceptions` ([v0.5](https://github.com/skybleak333/laravel-queue-lab/releases/tag/v0.5.0)), and a Laravel AI SDK agent in a queued job whose tool runs twice when its provider fails over after the tool call ([v0.6](https://github.com/skybleak333/laravel-queue-lab/releases/tag/v0.6.0)).
-- **Queue reliability checks for other people's issues:** an [analysis of #664](https://github.com/vyuldashev/laravel-queue-rabbitmq/issues/664#issuecomment-6211004087) (the reported hang is really redelivery), an [independent check of PR #674](https://github.com/vyuldashev/laravel-queue-rabbitmq/pull/674#issuecomment-6239412564), and [measurements for php-amqplib#1227](https://github.com/php-amqplib/php-amqplib/issues/1227#issuecomment-6239409018).
-
-## Engineering interests
-
-- **Queues and workers:** retries, connection failures, recovery, and safe restarts.
-- **Release reliability:** what happens when old and new application versions run together.
-- **AI agents:** MCP servers and clients, tool calling, and long-term memory that survives retries.
-- **AI-assisted development:** understanding, testing, and reviewing the code that coding tools produce.
-
-## Stack
-
-PHP · Laravel · PostgreSQL · Redis · RabbitMQ · Docker · Kubernetes
-
-[Connect on LinkedIn](https://www.linkedin.com/in/andrey-fedoseev-skybleak/)
+[More contributions](https://github.com/skybleak333/skybleak333/blob/main/CONTRIBUTIONS.md) · [LinkedIn](https://www.linkedin.com/in/andrey-fedoseev-skybleak/)
